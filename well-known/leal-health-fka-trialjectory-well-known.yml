@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of every Leal Health host on 2026-07-19
+result: none
+note: >-
+  No /.well-known/ discovery document is published on any Leal Health host. The marketing hosts return
+  hard 404s, the private API host returns 401 for every path including /.well-known/*, and the patient
+  web application (webapp.leal.health, an S3/CloudFront single-page app) returns HTTP 200 with
+  Content-Type text/html for every path -- a soft-404 SPA fallback serving the application shell, not a
+  discovery document. Nothing was saved verbatim and no WellKnown or SecurityTxt pointer is wired into
+  apis.yml, because no document genuinely exists.
+hosts:
+- host: https://leal.health
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.leal.health
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://api.leal.health
+  note: private API; every path returns 401 with an empty body and no WWW-Authenticate header
+  documents:
+  - {path: /.well-known/security.txt, status: 401}
+  - {path: /.well-known/openid-configuration, status: 401}
+  - {path: /.well-known/oauth-authorization-server, status: 401}
+  - {path: /.well-known/api-catalog, status: 401}
+  - {path: /.well-known/ai-plugin.json, status: 401}
+- host: https://webapp.leal.health
+  note: soft-404; all paths return 200 text/html (SPA index.html), not a discovery document
+  documents:
+  - {path: /.well-known/security.txt, status: 200, soft_404: true, content_type: text/html}
+  - {path: /.well-known/openid-configuration, status: 200, soft_404: true, content_type: text/html}
+  - {path: /.well-known/oauth-authorization-server, status: 200, soft_404: true, content_type: text/html}
+  - {path: /.well-known/api-catalog, status: 200, soft_404: true, content_type: text/html}
+  - {path: /.well-known/ai-plugin.json, status: 200, soft_404: true, content_type: text/html}

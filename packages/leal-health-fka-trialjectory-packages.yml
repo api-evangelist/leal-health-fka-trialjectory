@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source: npm, PyPI, and GitHub registry searches on 2026-07-19
+result: none
+packages: []
+note: >-
+  No first-party Leal Health or TrialJectory client library exists on any public registry. npm search for
+  "trialjectory" returns 0 results; PyPI returns 404 for trialjectory, leal-health, and lealhealth. The
+  GitHub organization github.com/Trialjectory exists (created 2018-06-24) but publishes 0 public
+  repositories. No SDK or CLI is linked from any page on leal.health. No `Packages` or `SDKs` pointer is
+  wired into apis.yml because no package genuinely exists.
+registries_probed:
+- {registry: npm, query: trialjectory, results: 0}
+- {registry: npm, query: leal-health, results: 0-first-party}
+- {registry: pypi, name: trialjectory, status: 404}
+- {registry: pypi, name: leal-health, status: 404}
+- {registry: pypi, name: lealhealth, status: 404}
+- {registry: github, org: Trialjectory, status: 200, public_repos: 0}
+- {registry: github, org: leal-health, status: 404}
+- {registry: github, org: lealhealth, status: 404}
