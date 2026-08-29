@@ -12,6 +12,17 @@ description: 'Leal Health (formerly TrialJectory) is an AI-powered, patient-firs
   program: a live platform API host exists at api.leal.health, but every path behind the root returns HTTP
   401 and no OpenAPI, SDK, or developer documentation is published.'
 url: https://raw.githubusercontent.com/api-evangelist/leal-health-fka-trialjectory/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
